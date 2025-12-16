@@ -31,7 +31,7 @@ impl Jimser {
         if Jimser::is_consonant(c) != -1 {// must be consonant if it's not -1
             let idx = Jimser::is_consonant(c) as usize;// need to index james consonants later
             let mut ret = String::new();
-            for _ in 0..idx {
+            for _ in 0..idx + 1 {
                 ret.push(JCONSANTS[self.jc_i as usize]);
             }
             self.plus_c();
@@ -40,7 +40,9 @@ impl Jimser {
         // we havent returned yet so it must be a vowel
         let idx = Jimser::is_vowel(c) as usize;
         let mut ret = String::new();
-        for _ in 0..idx {
+        // println!("idx - {}", idx);
+        // println!("{:?}", self.jv_i);
+        for _ in 0..idx + 1 {
             ret.push(JVOWELS[self.jv_i as usize]);
         }
         self.plus_v();

@@ -19,6 +19,19 @@ use std::io;
 // }
 
 fn main() {
+    if cfg!(target_os = "windows") {
+        let x = std::process::Command::new("cmd")
+            .args(["/C", "clear"])
+            .output();
+        println!("{}", std::str::from_utf8(&x.unwrap().stdout).expect("oops"));
+    } else {
+        let x = std::process::Command::new("sh")
+            .arg("-c")
+            .arg("clear")
+            .output();
+        println!("{}", std::str::from_utf8(&x.unwrap().stdout).expect("oops"));
+    }
+
     println!(" James-English or English-James translator");
     println!("-------------------------------------------");
     let mut kind = velg();
@@ -67,7 +80,7 @@ fn jtoe(text: String) -> String {
     let mut i = 0;
     while i < text.len() - 1 {
         let mut j = i;
-        while text_bytes[j] == text_bytes[i] {
+        while j < text.len() && text_bytes[j] == text_bytes[i] {
             j += 1;
         }
         txt.push((text_bytes[i] as char, j - i));
