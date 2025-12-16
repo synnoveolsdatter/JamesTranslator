@@ -5,5 +5,5 @@ Our influence has spread far and wide in the past decade, but alas, other countr
 NOTE - As the official Jamish language is documented, this project may extend to cover standard Jamish as well.
 
 
-It is sadly currently 30 minutes to 02:00, so y'all will js have to build from source until I make different executables. Sorry!
+As it turns out btw, Rust is a pain in the ass to compile to other operating systems. I can try to build it again later, but build from source if you can rn, congrats if you have an aarch64 chip w/ an apple computer bc that's the only executable i made lol
 
